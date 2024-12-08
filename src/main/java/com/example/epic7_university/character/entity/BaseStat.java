@@ -29,4 +29,5 @@ public class BaseStat extends BaseEntity {
     private int effectiveness;
     private int effectResistance;
     private int dualAttackChance;
+    private int birthGrade;
 }
