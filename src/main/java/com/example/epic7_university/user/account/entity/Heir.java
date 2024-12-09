@@ -1,10 +1,7 @@
 package com.example.epic7_university.user.account.entity;
 
 import com.example.epic7_university.common.entity.UserBaseEntity;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -20,7 +17,7 @@ public class Heir extends UserBaseEntity {
     @GeneratedValue( strategy = GenerationType.IDENTITY )
     private Long id;
     // 게임 내에서 사용하는 UID
-    @GeneratedValue( strategy = GenerationType.UUID )
+    @Column(unique = true)
     private String uid;
     // 유저 레벨
     private int level;

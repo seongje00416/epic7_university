@@ -33,6 +33,7 @@ public class Equipment extends BaseEntity {
     private int mainStatValue;
     // 장비 세트
     @Enumerated( EnumType.STRING )
+    @Column( name = "equipment_set" )
     private EquipmentSet set;
     // 강화 단계
     private int enhanceValue;
