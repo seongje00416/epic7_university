@@ -1,6 +1,7 @@
-package com.example.epic7_university.equipment.entity;
+package com.example.epic7_university.user.equipment.entity;
 
 import com.example.epic7_university.common.entity.BaseEntity;
+import com.example.epic7_university.user.Heir;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,6 +19,9 @@ public class Equipment extends BaseEntity {
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY )
     private Long id;
+    @OneToOne
+    @JoinColumn( name = "heir_id" )
+    private Heir heir;
     @Enumerated( EnumType.STRING )
     private EquipmentParts equipmentParts;
     @Enumerated( EnumType.STRING )
