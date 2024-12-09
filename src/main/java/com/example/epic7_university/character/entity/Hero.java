@@ -2,10 +2,7 @@ package com.example.epic7_university.character.entity;
 
 import com.example.epic7_university.common.entity.BaseEntity;
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import lombok.experimental.FieldNameConstants;
 
 import java.util.List;
@@ -54,4 +51,39 @@ public class Hero extends BaseEntity {
     // 보유 스킬
     @OneToMany( mappedBy = "hero" )
     private List<Skill> skill;
+
+    @Builder
+    public Hero(
+            Long id,
+            String name,
+            String realName,
+            Constellation constellation,
+            HeroClass heroClass,
+            Element element,
+            Stats imprintRelease,
+            int irBaseValue,
+            int irUpValue,
+            Stats imprintConcentration,
+            int icBaseValue,
+            int icUpValue,
+            int birthGrade,
+            GetType getType,
+            Stats mainStats
+    ){
+        this.id = id;
+        this.name = name;
+        this.realName = realName;
+        this.constellation = constellation;
+        this.heroClass = heroClass;
+        this.element = element;
+        this.imprintRelease = imprintRelease;
+        this.irBaseValue = irBaseValue;
+        this.irUpValue = irUpValue;
+        this.imprintConcentration = imprintConcentration;
+        this.icBaseValue = icBaseValue;
+        this.icUpValue = icUpValue;
+        this.birthGrade = birthGrade;
+        this.getType = getType;
+        this.mainStats = mainStats;
+    }
 }

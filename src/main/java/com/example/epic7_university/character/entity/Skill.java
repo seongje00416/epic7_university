@@ -1,6 +1,7 @@
 package com.example.epic7_university.character.entity;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -36,4 +37,27 @@ public class Skill {
     private int soulBurnCount;
     // 소울번 효과 설명
     private String soulBurnEffect;
+
+    @Builder
+    public Skill(
+            Long id,
+            Hero hero,
+            String name,
+            SkillType skillType,
+            int skillNumber,
+            String description,
+            int maxEnhanceValue,
+            int soulBurnCount,
+            String soulBurnEffect
+    ){
+        this.id = id;
+        this.hero = hero;
+        this.name = name;
+        this.skillType = skillType;
+        this.skillNumber = skillNumber;
+        this.description = description;
+        this.maxEnhanceValue = maxEnhanceValue;
+        this.soulBurnCount = soulBurnCount;
+        this.soulBurnEffect = soulBurnEffect;
+    }
 }

@@ -1,6 +1,8 @@
 package com.example.epic7_university.character.implementation;
 
 import com.example.epic7_university.character.controller.CharacterController;
+import com.example.epic7_university.character.dto.request.AddNewHeroRequest;
+import com.example.epic7_university.character.dto.request.AddNewHeroSkillRequest;
 import com.example.epic7_university.character.dto.response.GetAllHerosResponse;
 import com.example.epic7_university.character.dto.response.GetHeroDetailResponse;
 import com.example.epic7_university.character.service.CharacterService;
@@ -31,6 +33,17 @@ public class CharacterImpl implements CharacterController {
 
     @Override
     public ResponseEntity<SuccessResponse<GetHeroDetailResponse>> getHeroDetail(Long heroID) {
-        return null;
+        return SuccessResponse.of( characterService.getHeroDetail( heroID ) ).asHttp( HttpStatus.OK );
+    }
+
+    @Override
+    public ResponseEntity<SuccessResponse<Long>> addNewHero(AddNewHeroRequest addNewHeroRequest) {
+        return SuccessResponse.of( characterService.addHeroInformation( addNewHeroRequest ) ).asHttp( HttpStatus.OK );
+    }
+
+    @Override
+    public ResponseEntity<SuccessResponse<Void>> addNewHeroSkill(AddNewHeroSkillRequest addNewHeroSkillRequest ) {
+        characterService.addHeroSkill( addNewHeroSkillRequest );
+        return SuccessResponse.ofNoData().asHttp( HttpStatus.OK );
     }
 }
