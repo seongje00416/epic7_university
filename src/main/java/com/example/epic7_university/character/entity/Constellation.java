@@ -1,21 +1,37 @@
 package com.example.epic7_university.character.entity;
 
-import lombok.RequiredArgsConstructor;
+import com.example.epic7_university.common.entity.BaseEntity;
+import com.example.epic7_university.item.entity.Catalyst;
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.experimental.FieldNameConstants;
 
-@RequiredArgsConstructor
-public enum Constellation {
-    CANCER( "거해궁" ),
-    TAURUS( "금우궁" ),
-    CAPRICORN( "마갈궁" ),
-    ARIES( "백양궁" ),
-    AQUARIUS( "보병궁" ),
-    LEO( "사자궁" ),
-    GEMINI( "쌍아궁" ),
-    PISCES( "쌍어궁" ),
-    SAGITTARIUS( "인마궁" ),
-    VIRGO( "처녀궁" ),
-    SCORPIO( "천갈궁" ),
-    LIBRA( "천칭궁" );
-
-    private final String name;
+@Entity
+@Getter
+@Setter
+@NoArgsConstructor
+@FieldNameConstants
+public class Constellation extends BaseEntity {
+    @Id
+    @GeneratedValue( strategy = GenerationType.IDENTITY )
+    private Long id;
+    // 별자리 이름
+    private String name;
+    // 아이콘 주소
+    private String iconURL;
+    // 각성 희귀 촉매제
+    @OneToOne
+    @JoinColumn( name = "arousal_catalyst_id" )
+    private Catalyst arousalCatalyst;
+    // 전설 족매제
+    @OneToOne
+    @JoinColumn( name = "epic_catalyst_id" )
+    private Catalyst epicCatalyst;
+    // 스킬 강화 희귀 촉매제
+    @OneToOne
+    @JoinColumn( name = "skill_enhance_catalyst_id" )
+    private Catalyst skillEnhanceCatalyst;
 }
+

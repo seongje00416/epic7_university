@@ -19,25 +19,39 @@ public class Hero extends BaseEntity {
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY )
     private Long id;
-    @Enumerated( EnumType.STRING )
+    // 이름
+    private String name;
+    // 본명
+    private String realName;
+    // 별자리
+    @OneToOne
+    @JoinColumn( name = "constellation_id" )
     private Constellation constellation;
+    // 직업
     @Enumerated( EnumType.STRING )
     private HeroClass heroClass;
+    // 속성
     @Enumerated( EnumType.STRING )
     private Element element;
-    private String name;
-    private String realName;
-    @OneToOne()
-    @JoinColumn( name = "release_id" )
-    private Imprint imprintRelease;
-    @OneToOne()
-    @JoinColumn( name = "concentration_id" )
-    private Imprint imprintConcentration;
+    // 각인 해방
+    @Enumerated( EnumType.STRING )
+    private Stats imprintRelease;
+    private int irBaseValue;
+    private int irUpValue;
+    // 각인 집중
+    @Enumerated( EnumType.STRING )
+    private Stats imprintConcentration;
+    private int icBaseValue;
+    private int icUpValue;
+    // 태생 등급
     private int birthGrade;
+    // 획득 경로
     @Enumerated( EnumType.STRING )
     private GetType getType;
+    // 주 사용 스탯
     @Enumerated( EnumType.STRING )
     private Stats mainStats;
+    // 보유 스킬
     @OneToMany( mappedBy = "hero" )
     private List<Skill> skill;
 }

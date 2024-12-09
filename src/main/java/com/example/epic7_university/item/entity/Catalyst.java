@@ -1,6 +1,6 @@
-package com.example.epic7_university.user;
+package com.example.epic7_university.item.entity;
 
-import com.example.epic7_university.common.entity.UserBaseEntity;
+import com.example.epic7_university.common.entity.BaseEntity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -15,13 +15,12 @@ import lombok.experimental.FieldNameConstants;
 @Setter
 @NoArgsConstructor
 @FieldNameConstants
-public class Heir extends UserBaseEntity {
+public class Catalyst extends BaseEntity {
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY )
     private Long id;
-    private String uid;
-    private int level;
-    private String nickname;
-    private String profileImage;
+    private String name;
+    private String imageURL;
     private String description;
+    private boolean isEpic;
 }

@@ -16,10 +16,16 @@ public class BaseStat extends BaseEntity {
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY )
     private Long id;
-    @Enumerated( EnumType.STRING )
+    // 태생 등급
+    private int birthGrade;
+    // 별자리
+    @OneToOne
+    @JoinColumn( name = "constellation_id" )
     private Constellation constellation;
+    // 직업
     @Enumerated( EnumType.STRING )
-    private Element element;
+    private HeroClass heroClass;
+    // 기본 스탯
     private int attack;
     private int defense;
     private int health;
@@ -29,5 +35,4 @@ public class BaseStat extends BaseEntity {
     private int effectiveness;
     private int effectResistance;
     private int dualAttackChance;
-    private int birthGrade;
 }

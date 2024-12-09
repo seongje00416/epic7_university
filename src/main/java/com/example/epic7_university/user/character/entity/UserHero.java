@@ -2,7 +2,7 @@ package com.example.epic7_university.user.character.entity;
 
 import com.example.epic7_university.character.entity.Hero;
 import com.example.epic7_university.common.entity.UserBaseEntity;
-import com.example.epic7_university.user.Heir;
+import com.example.epic7_university.user.account.entity.Heir;
 import com.example.epic7_university.user.equipment.entity.Equipment;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -32,6 +32,6 @@ public class UserHero extends UserBaseEntity {
     private int skillEnhance1;
     private int skillEnhance2;
     private int skillEnhance3;
-    @OneToMany( mappedBy = "equipment" )
+    @OneToMany( mappedBy = "id" )
     private List<Equipment> equipmentList;
 }
