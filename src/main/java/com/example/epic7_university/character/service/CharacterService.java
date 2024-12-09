@@ -2,6 +2,8 @@ package com.example.epic7_university.character.service;
 
 import com.example.epic7_university.character.dto.response.GetAllHerosResponse;
 import com.example.epic7_university.character.dto.response.GetHeroDetailResponse;
+import com.example.epic7_university.character.entity.Hero;
+import com.example.epic7_university.character.exception.HeroNotFoundException;
 import com.example.epic7_university.character.repository.CharacterRepository;
 import com.example.epic7_university.common.dto.PageResponse;
 import com.example.epic7_university.common.utils.PageUtils;
@@ -21,6 +23,7 @@ public class CharacterService {
     }
 
     public GetHeroDetailResponse getHeroDetail( Long id) {
-        return GetHeroDetailResponse.of( characterRepository.findById(id) );
+        Hero hero = characterRepository.findById(id).orElseThrow(HeroNotFoundException::new);
+        return GetHeroDetailResponse.of( hero );
     }
 }
