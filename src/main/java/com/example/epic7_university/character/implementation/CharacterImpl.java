@@ -2,6 +2,7 @@ package com.example.epic7_university.character.implementation;
 
 import com.example.epic7_university.character.controller.CharacterController;
 import com.example.epic7_university.character.dto.response.GetAllHerosResponse;
+import com.example.epic7_university.character.dto.response.GetHeroDetailResponse;
 import com.example.epic7_university.character.service.CharacterService;
 import com.example.epic7_university.common.dto.PageResponse;
 import com.example.epic7_university.common.dto.SuccessResponse;
@@ -26,5 +27,10 @@ public class CharacterImpl implements CharacterController {
     ) {
         PageRequest pageRequest = PageRequest.of(0, 10);
         return SuccessResponse.of( characterService.getAllHeros( pageRequest ) ).asHttp( HttpStatus.OK );
+    }
+
+    @Override
+    public ResponseEntity<SuccessResponse<GetHeroDetailResponse>> getHeroDetail(Long heroID) {
+        return null;
     }
 }
