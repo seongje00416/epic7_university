@@ -1,4 +1,4 @@
-package com.example.epic7_university.character.implementation;
+package com.example.epic7_university.character.implement;
 
 import com.example.epic7_university.character.controller.CharacterController;
 import com.example.epic7_university.character.dto.request.AddNewHeroRequest;

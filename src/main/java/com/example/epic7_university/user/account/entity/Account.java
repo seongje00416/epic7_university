@@ -5,6 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -23,4 +24,13 @@ public class Account extends UserBaseEntity {
     private String email;
     // 로그인 비밀번호
     private String password;
+
+    @Builder
+    public Account(
+            String email,
+            String password
+    ){
+        this.password = password;
+        this.email = email;
+    }
 }
