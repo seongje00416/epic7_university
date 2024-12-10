@@ -5,7 +5,8 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 public enum CharacterErrorCode implements ErrorCode {
-    HERO_NOT_FOUND( 404, "CE-001", "해당 영웅을 찾을 수 없습니다" );
+    HERO_NOT_FOUND( 404, "CE-001", "해당 영웅을 찾을 수 없습니다" ),
+    SKILL_NOT_FOUND( 404, "SE-001", "해당 기술을 찾을 수 없습니다" );
 
     private final int status;
     private final String code;

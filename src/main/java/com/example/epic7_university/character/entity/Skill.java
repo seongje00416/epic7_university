@@ -60,4 +60,22 @@ public class Skill {
         this.soulBurnCount = soulBurnCount;
         this.soulBurnEffect = soulBurnEffect;
     }
+
+    public void update(
+            String name,
+            SkillType skillType,
+            int skillNumber,
+            String description,
+            int maxEnhanceValue,
+            int soulBurnCount,
+            String soulBurnEffect
+    ){
+        this.name = name;
+        this.skillType = skillType;
+        this.skillNumber = skillNumber;
+        this.description = description;
+        this.maxEnhanceValue = maxEnhanceValue;
+        this.soulBurnCount = soulBurnCount;
+        this.soulBurnEffect = soulBurnEffect;
+    }
 }

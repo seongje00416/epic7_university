@@ -86,4 +86,36 @@ public class Hero extends BaseEntity {
         this.getType = getType;
         this.mainStats = mainStats;
     }
+
+    public void update(
+            String name,
+            String realName,
+            Constellation constellation,
+            HeroClass heroClass,
+            Element element,
+            Stats imprintRelease,
+            int irBaseValue,
+            int irUpValue,
+            Stats imprintConcentration,
+            int icBaseValue,
+            int icUpValue,
+            int birthGrade,
+            GetType getType,
+            Stats mainStats
+    ){
+        this.name = name;
+        this.realName = realName;
+        this.constellation = constellation;
+        this.heroClass = heroClass;
+        this.element = element;
+        this.imprintRelease = imprintRelease;
+        this.irBaseValue = irBaseValue;
+        this.irUpValue = irUpValue;
+        this.imprintConcentration = imprintConcentration;
+        this.icBaseValue = icBaseValue;
+        this.icUpValue = icUpValue;
+        this.birthGrade = birthGrade;
+        this.getType = getType;
+        this.mainStats = mainStats;
+    }
 }

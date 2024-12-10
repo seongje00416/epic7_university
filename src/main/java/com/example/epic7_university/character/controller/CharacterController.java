@@ -2,6 +2,8 @@ package com.example.epic7_university.character.controller;
 
 import com.example.epic7_university.character.dto.request.AddNewHeroRequest;
 import com.example.epic7_university.character.dto.request.AddNewHeroSkillRequest;
+import com.example.epic7_university.character.dto.request.UpdateHeroRequest;
+import com.example.epic7_university.character.dto.request.UpdateHeroSKillRequest;
 import com.example.epic7_university.character.dto.response.GetAllHerosResponse;
 import com.example.epic7_university.character.dto.response.GetHeroDetailResponse;
 import com.example.epic7_university.common.dto.PageResponse;
@@ -11,10 +13,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Tag( name = "Character Controller", description = "영웅 캐릭터 API" )
 public interface CharacterController {
@@ -65,5 +64,29 @@ public interface CharacterController {
     @PostMapping( value = "/addNewHero/skill" )
     ResponseEntity<SuccessResponse<Void>> addNewHeroSkill(
             @RequestBody AddNewHeroSkillRequest addNewHeroSkillRequest
+    );
+
+    @Operation( summary = "영웅 정보 수정", description = "영웅 정보 수정 API" )
+    @ApiResponses( value = {
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "성공적으로 수정했습니다"
+            )
+    })
+    @PatchMapping( value = "/updateHero/information")
+    ResponseEntity<SuccessResponse<Void>> updateHero(
+            @RequestBody UpdateHeroRequest updateHeroRequest
+    );
+
+    @Operation( summary = "영웅 기술 수정", description = "영웅 기술 정보 수정 API" )
+    @ApiResponses( value = {
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "성공적으로 수정되었습니다"
+            )
+    })
+    @PatchMapping( value = "/updateHero/skill" )
+    ResponseEntity<SuccessResponse<Void>> updateHeroSkill(
+            @RequestBody UpdateHeroSKillRequest updateHeroSKillRequest
     );
 }

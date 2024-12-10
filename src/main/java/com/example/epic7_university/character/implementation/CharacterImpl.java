@@ -3,6 +3,8 @@ package com.example.epic7_university.character.implementation;
 import com.example.epic7_university.character.controller.CharacterController;
 import com.example.epic7_university.character.dto.request.AddNewHeroRequest;
 import com.example.epic7_university.character.dto.request.AddNewHeroSkillRequest;
+import com.example.epic7_university.character.dto.request.UpdateHeroRequest;
+import com.example.epic7_university.character.dto.request.UpdateHeroSKillRequest;
 import com.example.epic7_university.character.dto.response.GetAllHerosResponse;
 import com.example.epic7_university.character.dto.response.GetHeroDetailResponse;
 import com.example.epic7_university.character.service.CharacterService;
@@ -44,6 +46,18 @@ public class CharacterImpl implements CharacterController {
     @Override
     public ResponseEntity<SuccessResponse<Void>> addNewHeroSkill(AddNewHeroSkillRequest addNewHeroSkillRequest ) {
         characterService.addHeroSkill( addNewHeroSkillRequest );
+        return SuccessResponse.ofNoData().asHttp( HttpStatus.OK );
+    }
+
+    @Override
+    public ResponseEntity<SuccessResponse<Void>> updateHero(UpdateHeroRequest updateHeroRequest) {
+        characterService.updateHero( updateHeroRequest );
+        return SuccessResponse.ofNoData().asHttp( HttpStatus.OK );
+    }
+
+    @Override
+    public ResponseEntity<SuccessResponse<Void>> updateHeroSkill(UpdateHeroSKillRequest updateHeroSKillRequest) {
+        characterService.updateHeroSkill( updateHeroSKillRequest );
         return SuccessResponse.ofNoData().asHttp( HttpStatus.OK );
     }
 }
