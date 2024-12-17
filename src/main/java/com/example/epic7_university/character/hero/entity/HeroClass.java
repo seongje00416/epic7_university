@@ -1,4 +1,4 @@
-package com.example.epic7_university.character.entity;
+package com.example.epic7_university.character.hero.entity;
 
 import lombok.RequiredArgsConstructor;
 
