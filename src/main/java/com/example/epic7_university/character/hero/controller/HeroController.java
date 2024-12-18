@@ -34,5 +34,8 @@ public interface HeroController {
             )
     })
     @GetMapping( value = "/getAllHero" )
-    ResponseEntity<SuccessResponse<PageResponse<GetAllHeroResponse>>> getAllHero();
+    ResponseEntity<SuccessResponse<PageResponse<GetAllHeroResponse>>> getAllHero(
+            @RequestParam( value="size", required = false, defaultValue = "10" ) int size,
+            @RequestParam( value="page", required = false, defaultValue = "0" ) int page
+    );
 }
