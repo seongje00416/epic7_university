@@ -5,7 +5,8 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 public enum HeroErrorCode implements ErrorCode {
-    HERO_NOT_FOUND( 404, "HE-0001", "Hero Not Found" );
+    HERO_NOT_FOUND( 404, "HE-0001", "Hero Not Found" ),
+    BASE_STAT_NOT_FOUND( 404, "BE-0001", "Base Stat Not Found" );
 
     private final int status;
     private final String code;
