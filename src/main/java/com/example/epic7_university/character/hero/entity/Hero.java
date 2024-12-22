@@ -20,6 +20,9 @@ public class Hero extends BaseEntity {
     private Long id;
     private String name;
     private int grade;
+    @OneToOne
+    @JoinColumn( name = "base_stat_id" )
+    private BaseStat baseStat;
     private String imprintRelease;
     private float irIncrease;
     private float irBase;
@@ -39,6 +42,7 @@ public class Hero extends BaseEntity {
             Long id,
             String name,
             int grade,
+            BaseStat baseStat,
             String imprintRelease,
             float irIncrease,
             float irBase,
@@ -52,6 +56,7 @@ public class Hero extends BaseEntity {
         this.id = id;
         this.name = name;
         this.grade = grade;
+        this.baseStat = baseStat;
         this.imprintRelease = imprintRelease;
         this.irIncrease = irIncrease;
         this.irBase = irBase;

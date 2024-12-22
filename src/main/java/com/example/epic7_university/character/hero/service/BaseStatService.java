@@ -15,7 +15,7 @@ public class BaseStatService {
 
     public GetBaseStatResponse getBaseStat(GetBaseStatRequest getBaseStatRequest ){
         BaseStat baseStat = baseStatRepository
-                .findBaseStatByConstellationAndHeroClassAndGrade( getBaseStatRequest.constellation(), getBaseStatRequest.heroClass(), getBaseStatRequest.grade() )
+                .findBasestatByHeroId(getBaseStatRequest.heroId() )
                 .orElseThrow(BaseStatNotFoundException::new);
         return GetBaseStatResponse.of( baseStat );
     }

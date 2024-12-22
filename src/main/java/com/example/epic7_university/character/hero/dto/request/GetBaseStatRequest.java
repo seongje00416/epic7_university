@@ -8,9 +8,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 @Schema( name = "Get Base Stat Request", description = "기본 스탯 정보를 불러오기 위한 요청" )
 public record GetBaseStatRequest(
-    @Schema( description = "별자리", requiredMode = Schema.RequiredMode.REQUIRED, implementation = Constellation.class )Constellation constellation,
-        @Schema( description = "태생 등급", requiredMode = Schema.RequiredMode.REQUIRED ) int grade,
-        @Schema( description = "직업", requiredMode = Schema.RequiredMode.REQUIRED, implementation = HeroClass.class ) HeroClass heroClass
+    @Schema( description = "영웅 ID" ) Long heroId
         ) {
     public static GetBaseStatResponse of(BaseStat baseStat){
         return GetBaseStatResponse.builder()
