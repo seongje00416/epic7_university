@@ -17,8 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class BaseStatImplement implements BaseStatController {
     private final BaseStatService baseStatService;
     @Override
-    public ResponseEntity<SuccessResponse<GetBaseStatResponse>> getBaseStat(GetBaseStatRequest getBaseStatRequest) {
-        GetBaseStatResponse getBaseStatResponse = baseStatService.getBaseStat( getBaseStatRequest );
+    public ResponseEntity<SuccessResponse<GetBaseStatResponse>> getBaseStat( Long heroId ) {
+        GetBaseStatResponse getBaseStatResponse = baseStatService.getBaseStat( heroId );
         return SuccessResponse.of( getBaseStatResponse ).asHttp(HttpStatus.OK);
     }
 }

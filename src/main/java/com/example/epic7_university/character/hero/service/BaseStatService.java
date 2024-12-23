@@ -13,9 +13,9 @@ import org.springframework.stereotype.Service;
 public class BaseStatService {
     private final BaseStatRepository baseStatRepository;
 
-    public GetBaseStatResponse getBaseStat(GetBaseStatRequest getBaseStatRequest ){
+    public GetBaseStatResponse getBaseStat( Long heroId ){
         BaseStat baseStat = baseStatRepository
-                .findBasestatByHeroId(getBaseStatRequest.heroId() )
+                .findByHeroId( heroId )
                 .orElseThrow(BaseStatNotFoundException::new);
         return GetBaseStatResponse.of( baseStat );
     }

@@ -8,5 +8,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.Optional;
 
 public interface BaseStatRepository extends JpaRepository<BaseStat, Long> {
-    Optional<BaseStat> findBasestatByHeroId( Long heroId );
+    Optional<BaseStat> findByHeroId( Long heroId );
 }

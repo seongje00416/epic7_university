@@ -9,7 +9,9 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Tag( name = "Base Stat API", description = "영웅 기본 스탯 관련 API" )
 public interface BaseStatController {
@@ -20,8 +22,8 @@ public interface BaseStatController {
                     description = "조회 성공"
             )
     })
-    @GetMapping( value = "/getBaseStat" )
+    @GetMapping( value = "/getBaseStat/{heroId}" )
     ResponseEntity<SuccessResponse<GetBaseStatResponse>> getBaseStat(
-            @RequestBody GetBaseStatRequest getBaseStatRequest
+            @PathVariable Long heroId
     );
 }
