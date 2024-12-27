@@ -23,7 +23,7 @@ public class HeroService {
 
     public PageResponse<GetAllHeroResponse> getAllHero( PageRequest pageRequest ){
         return PageUtils.toPageResponse( heroRepository.findAll( pageRequest ).map(
-                hero -> GetAllHeroResponse.of( hero )
+                GetAllHeroResponse::of
         ));
     }
 }
