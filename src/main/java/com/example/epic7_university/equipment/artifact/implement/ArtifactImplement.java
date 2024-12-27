@@ -4,6 +4,7 @@ import com.example.epic7_university.common.dto.PageResponse;
 import com.example.epic7_university.common.dto.SuccessResponse;
 import com.example.epic7_university.equipment.artifact.controller.ArtifactController;
 import com.example.epic7_university.equipment.artifact.dto.response.GetAllArtifactResponse;
+import com.example.epic7_university.equipment.artifact.dto.response.GetArtifactDetailResponse;
 import com.example.epic7_university.equipment.artifact.service.ArtifactService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
@@ -22,5 +23,10 @@ public class ArtifactImplement implements ArtifactController {
     public ResponseEntity<SuccessResponse<PageResponse<GetAllArtifactResponse>>> getAllArtifacts(int size, int page) {
         PageRequest pageRequest = PageRequest.of(page, size);
         return SuccessResponse.of( artifactService.getAllArtifact( pageRequest ) ).asHttp( HttpStatus.OK );
+    }
+
+    @Override
+    public ResponseEntity<SuccessResponse<GetArtifactDetailResponse>> getArtifactDetail(Long artifactId) {
+        return SuccessResponse.of( artifactService.getArtifactDetail( artifactId ) ).asHttp( HttpStatus.OK );
     }
 }
